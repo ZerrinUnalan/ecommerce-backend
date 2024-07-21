@@ -14,13 +14,35 @@ import jakarta.persistence.*;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
-    private Long id;
+    @Column(name = "title")
+    private String title;
 
-    private String description;
-    private String street;
-    private String neighborhood;
-    private String district;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "surname")
+    private String surname;
+
+    @Column(name = "phone_number")
+    private String phone_number;
+
+    @Column(name = "city")
     private String city;
-    private Integer postalCode;
+
+    @Column(name = "district")
+    private String district;
+
+    @Column(name = "neighborhood")
+    private String neighborhood;
+
+    @Column(name = "address")
+    private String address;
+
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+            CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
+    private User user;
 }

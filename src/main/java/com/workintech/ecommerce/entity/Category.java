@@ -13,9 +13,24 @@ import lombok.AllArgsConstructor;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
-    private Long id;
+    @Column(name = "code")
+    private String code;
 
-    private String name;
-    private String description;
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "img")
+    private String img;
+
+    @Column(name = "rating")
+    private double rating;
+
+    @Column(name = "gender")
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+
 }

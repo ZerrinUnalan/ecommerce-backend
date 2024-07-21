@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import java.time.Instant;
 
 @Data
 @NoArgsConstructor
@@ -14,14 +13,32 @@ import java.time.Instant;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private long id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
-    private Double price;
-    private Double rating;
-    private Integer stockQuantity;
-    private String genre;
-    private Instant createdAt;
-    private Category category;
-}
+
+    @Column(name = "price")
+    private String price;
+
+    @Column(name = "stock")
+    private String stock;
+
+    @Column(name = "category_id")
+    private long categoryId;
+
+    @Column(name = "rating")
+    private String rating;
+
+    @Column(name = "sell_count")
+    private String sellCount;
+
+    @Column(name = "image")
+    private String image;
+
+    }
+

@@ -16,9 +16,18 @@ public class CreditCard {
 
     private Long id;
 
+    @Column(name = "card_no")
     private String card_no;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "expire_month")
     private Integer expireMonth;
+
+    @Column(name = "expire_year")
     private Integer expireYear;
+
+    @Column(name = "ccv")
     private Integer ccv;
 }
