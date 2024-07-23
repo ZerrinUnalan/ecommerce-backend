@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.time.Instant;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -43,4 +44,9 @@ public class Order {
 
     @Column(name = "amount")
     private Double amount;
+
+    @ManyToMany(cascade = { CascadeType.DETACH,CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "order_product", schema = "ecommerce", joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> product;
 }

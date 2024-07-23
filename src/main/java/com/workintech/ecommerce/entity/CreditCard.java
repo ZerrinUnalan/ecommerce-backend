@@ -30,4 +30,7 @@ public class CreditCard {
 
     @Column(name = "ccv")
     private Integer ccv;
+
+    @Column(name = "secure")
+    private boolean secure;
 }

@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,6 +42,18 @@ public class Product {
 
     @Column(name = "image")
     private String image;
+
+    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinTable(name = "order_product",schema = "ecommerce",joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id"))
+    private List<Order> orders;
+
+    public void addOrder(Order order){
+        if(orders==null){
+            orders=new ArrayList<>();
+        }
+        orders.add(order);
+    }
 
     }
 

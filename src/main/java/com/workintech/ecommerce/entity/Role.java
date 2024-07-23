@@ -5,6 +5,9 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,4 +21,19 @@ public class Role {
 
     @Column(name = "role")
     private String role;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
+    private List<User> users;
+    public void addUser(User user){
+        if(users == null){
+            users = new ArrayList<>();
+        }
+        users.add(user);
+    }
+
+    @Override
+    public String getAuthority() {
+        return role;
+    }
 }
