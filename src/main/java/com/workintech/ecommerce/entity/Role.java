@@ -31,9 +31,9 @@ public class Role {
         }
         users.add(user);
     }
-
+/*
     @Override
-    public String getAuthority() {
+    public String getRole() {
         return role;
-    }
+    } */
 }
