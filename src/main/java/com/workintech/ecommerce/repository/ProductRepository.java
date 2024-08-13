@@ -55,9 +55,6 @@ import java.util.Optional;
                 " FROM ecommerce.products AS p ORDER BY p.price ASC", nativeQuery = true)
         List<Product> lowestToHighestSorting();
 
-        @Query(value = "SELECT p.id, p.name, p.description, p.price, p.rating, p.sell_count, p.stock, p.image, p.category_id" +
-                " FROM ecommerce.products AS p  WHERE p.category_id = :categoryID ORDER BY p.price ASC", nativeQuery = true)
-        List<Product> lowestToHighestSortingAndCategory(long categoryID);
 
         @Query(value = "SELECT p.id, p.name, p.description, p.price, p.rating, p.sell_count, p.stock, p.image, p.category_id" +
                 " FROM ecommerce.products AS p ORDER BY p.rating ASC", nativeQuery = true)
